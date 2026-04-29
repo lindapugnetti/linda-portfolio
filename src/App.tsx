@@ -1,4 +1,5 @@
-import { useState, type MouseEvent, type CSSProperties } from "react";
+import { useState } from "react";
+import type { MouseEvent, CSSProperties } from "react";
 import "./styles.css";
 
 const rooms = ["Plenitude", "Eni", "Adidas", "Lenovo", "La Rinascente", "Lilt"];
