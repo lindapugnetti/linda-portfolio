@@ -3318,3 +3318,83 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* =========================
+   FIX LOBBY 3D DOOR
+========================= */
+
+.roomDoors {
+  position: relative;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: repeat(7, clamp(105px, 10vw, 150px));
+  gap: clamp(10px, 1.5vw, 22px);
+  justify-content: center;
+  width: min(1180px, 86vw);
+  margin: 145px auto 0;
+}
+
+.roomDoor {
+  width: 100%;
+  height: clamp(205px, 22vw, 245px);
+}
+
+.roomDoor span {
+  left: -8px;
+  width: calc(100% + 16px);
+  font-size: clamp(10px, 0.8vw, 15px);
+}
+
+/* porta 3D uguale alle altre, solo arancione */
+.door-3d-stuff {
+  background: #f28a2e;
+  border: 8px solid #130d0a;
+  box-shadow:
+    0 0 0 8px #3b3028,
+    0 18px 0 #0d0a08,
+    inset 14px 0 rgba(255, 255, 255, 0.12),
+    inset -18px 0 rgba(0, 0, 0, 0.32),
+    0 0 32px rgba(255, 132, 25, 0.35);
+}
+
+.door-3d-stuff span {
+  background: #16120f;
+  border: 6px solid #4d3b2a;
+  box-shadow: 0 0 0 4px #0f0a07;
+  color: #ffe39b;
+  text-shadow: 3px 3px #000;
+}
+
+.door-3d-stuff .smallWindow {
+  background: #111;
+  border: 5px solid #2a1608;
+  box-shadow: none;
+}
+
+.door-3d-stuff .smallHandle {
+  background: #ffc44d;
+  border: 4px solid #2a1608;
+}
+
+/* evita collisione con torce */
+.leftTorch {
+  left: 32px;
+}
+
+.rightTorch {
+  right: 32px;
+}
+
+/* mobile/tablet */
+@media (max-width: 1100px) {
+  .roomDoors {
+    grid-template-columns: repeat(4, clamp(110px, 18vw, 150px));
+    margin-top: 95px;
+  }
+}
+
+@media (max-width: 680px) {
+  .roomDoors {
+    grid-template-columns: repeat(2, 130px);
+    margin-top: 70px;
+  }
+}
