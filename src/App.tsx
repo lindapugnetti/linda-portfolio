@@ -27,6 +27,39 @@ const rinascenteProjects = [
 
 const liltProjects = ["Fallo per la tua salute", "Controllo palla"];
 
+const threeDProjects = [
+  {
+    name: "HATCHI!",
+    subtitle: "TOY DESIGN",
+    link: "https://www.behance.net/gallery/249994997/Hatchi-Personal-Project-Toy-Design",
+  },
+  {
+    name: "SISTERS",
+    subtitle: "3D CHARACTERS",
+    link: "https://www.behance.net/gallery/246097975/Sisters",
+  },
+  {
+    name: "EMOTIONAL CIRCUIT",
+    subtitle: "3D EXPERIMENT",
+    link: "https://www.behance.net/gallery/210645511/Emotional-Circuit",
+  },
+  {
+    name: "HEAD IN THE CLOUDS",
+    subtitle: "3D VISUAL",
+    link: "https://www.behance.net/gallery/121628731/Head-In-the-clouds",
+  },
+  {
+    name: "LEVEL UP",
+    subtitle: "3D PROJECT",
+    link: "https://www.behance.net/gallery/66536715/Level-Up",
+  },
+  {
+    name: "INSERT COIN",
+    subtitle: "3D PROJECT",
+    link: "https://www.behance.net/gallery/222738787/Insert-Coin",
+  },
+];
+
 type Screen =
   | "entrance"
   | "lobby"
@@ -612,30 +645,33 @@ export default function App() {
       )}
 
       {screen === "threeDRoom" && (
-        <main className="lenovoRoom">
-          <div className="lenovoParticles" />
+        <main className="threeDRoom">
+          <div className="threeDParticles" />
 
-          <div className="lenovoVines lenovoVinesLeft" />
-          <div className="lenovoVines lenovoVinesRight" />
-
-          <div className="lenovoTorch leftLenovoTorch">
-            <div className="blueFlame" />
+          <div className="threeDTorch leftThreeDTorch">
+            <div className="purpleFlame" />
           </div>
-          <div className="lenovoTorch rightLenovoTorch">
-            <div className="blueFlame" />
+          <div className="threeDTorch rightThreeDTorch">
+            <div className="purpleFlame" />
           </div>
 
-          <div className="lenovoSign">
+          <div className="threeDSign">
             <span>3D STUFF</span>
-            <small>EXPERIMENTAL PROJECTS</small>
+            <small>TOY DESIGN · CHARACTERS · EXPERIMENTS</small>
           </div>
 
-          <div className="lenovoDoors">
-            <button className="lenovoProjectDoor" disabled>
-              <span>COMING SOON</span>
-              <div className="smallWindow" />
-              <div className="smallHandle" />
-            </button>
+          <div className="threeDWindows">
+            {threeDProjects.map((project, index) => (
+              <button
+                key={project.name}
+                className={`threeDWindow threeDWindow-${index}`}
+                onClick={() => window.open(project.link, "_blank")}
+              >
+                <span>{project.name}</span>
+                <small>{project.subtitle}</small>
+                <div className="windowGlow" />
+              </button>
+            ))}
           </div>
 
           <button className="backToLobby" onClick={() => setScreen("lobby")}>
