@@ -2,7 +2,15 @@ import { useState } from "react";
 import type { MouseEvent, CSSProperties } from "react";
 import "./styles.css";
 
-const rooms = ["Plenitude", "Eni", "Adidas", "Lenovo", "La Rinascente", "Lilt"];
+const rooms = [
+  "Plenitude",
+  "Eni",
+  "Adidas",
+  "Lenovo",
+  "La Rinascente",
+  "Lilt",
+  "3D Stuff",
+];
 
 const plenitudeProjects = [
   "Campagna lancio fibra",
@@ -27,7 +35,8 @@ type Screen =
   | "eniRoom"
   | "lenovoRoom"
   | "rinascenteRoom"
-  | "liltRoom";
+  | "liltRoom"
+  | "threeDRoom";
 
 type Explosion = {
   id: number;
@@ -71,6 +80,8 @@ export default function App() {
       setScreen("rinascenteRoom");
     } else if (room === "Lilt") {
       setScreen("liltRoom");
+    } else if (room === "3D Stuff") {
+      setScreen("threeDRoom");
     }
   };
 
@@ -589,6 +600,39 @@ export default function App() {
               }
             >
               <span>It&apos;s Go Time</span>
+              <div className="smallWindow" />
+              <div className="smallHandle" />
+            </button>
+          </div>
+
+          <button className="backToLobby" onClick={() => setScreen("lobby")}>
+            ← BACK TO LOBBY
+          </button>
+        </main>
+      )}
+
+      {screen === "threeDRoom" && (
+        <main className="lenovoRoom">
+          <div className="lenovoParticles" />
+
+          <div className="lenovoVines lenovoVinesLeft" />
+          <div className="lenovoVines lenovoVinesRight" />
+
+          <div className="lenovoTorch leftLenovoTorch">
+            <div className="blueFlame" />
+          </div>
+          <div className="lenovoTorch rightLenovoTorch">
+            <div className="blueFlame" />
+          </div>
+
+          <div className="lenovoSign">
+            <span>3D STUFF</span>
+            <small>EXPERIMENTAL PROJECTS</small>
+          </div>
+
+          <div className="lenovoDoors">
+            <button className="lenovoProjectDoor" disabled>
+              <span>COMING SOON</span>
               <div className="smallWindow" />
               <div className="smallHandle" />
             </button>
